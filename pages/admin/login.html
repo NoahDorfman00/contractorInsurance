@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - ShapeShift Coaching</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="admin-body">
+    <div class="admin-login-container">
+        <div class="login-box">
+            <h1>ShapeShift Admin</h1>
+            <div class="login-buttons">
+                <button id="googleSignIn" class="google-sign-in">
+                    <img src="../../assets/google-icon.png" alt="Google Icon">
+                    Sign in with Google
+                </button>
+            </div>
+            <div id="loginError" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <!-- Initialize Firebase first -->
+    <script src="../../js/firebase.js"></script>
+    <!-- Then load login logic -->
+    <script src="../../js/admin/login.js"></script>
+</body>
+
+</html>

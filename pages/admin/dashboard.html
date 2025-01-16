@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ShapeShift Coaching</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+</head>
+
+<body class="admin-body">
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <nav class="admin-nav">
+        <div class="admin-nav-brand">
+            <h1>ShapeShift Admin</h1>
+        </div>
+        <div class="admin-nav-user">
+            <span id="userEmail"></span>
+            <button id="signOut" class="sign-out-btn">Sign Out</button>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="active" data-tab="applications">
+                    <i class="fas fa-users"></i> Applications
+                </li>
+                <li data-tab="email">
+                    <i class="fas fa-envelope"></i> Email System
+                </li>
+            </ul>
+        </div>
+
+        <main class="admin-content">
+            <!-- Applications Tab -->
+            <div id="applications" class="tab-content active">
+                <div class="applications-header">
+                    <h2>Applications</h2>
+                    <div class="filter-controls">
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="new">New</option>
+                            <option value="contacted">Contacted</option>
+                            <option value="enrolled">Enrolled</option>
+                            <option value="declined">Declined</option>
+                        </select>
+                        <input type="text" id="searchApplications" placeholder="Search applications...">
+                    </div>
+                </div>
+
+                <div class="applications-grid">
+                    <!-- Applications will be loaded here dynamically -->
+                </div>
+
+                <!-- Application Details Modal -->
+                <div id="applicationModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Application Details</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="detail-group">
+                                <h3>Basic Information</h3>
+                                <p><strong>Name:</strong> <span class="detail-name"></span></p>
+                                <p><strong>Email:</strong> <span class="detail-email"></span></p>
+                                <p><strong>Phone:</strong> <span class="detail-phone"></span></p>
+                                <p><strong>Age:</strong> <span class="detail-age"></span></p>
+                                <p><strong>Weight:</strong> <span class="detail-weight"></span> lbs</p>
+                                <p><strong>Occupation:</strong> <span class="detail-occupation"></span></p>
+                                <p><strong>Social Media:</strong> <span class="detail-social"></span></p>
+                                <p><strong>How they heard about us:</strong> <span class="detail-hear-about"></span></p>
+                                <p><strong>Military/First Responder Status:</strong> <span
+                                        class="detail-military"></span></p>
+                                <p><strong>Applied:</strong> <span class="detail-applied"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Goals & Health Value</h3>
+                                <p><strong>Goals:</strong> <span class="detail-goals"></span></p>
+                                <p><strong>Success Criteria:</strong> <span class="detail-success-criteria"></span></p>
+                                <p><strong>Health Value:</strong> <span class="detail-health-value"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Past Experiences</h3>
+                                <p><strong>Past Attempts:</strong> <span class="detail-past-attempts"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Current Lifestyle</h3>
+                                <p><strong>Coffee & Energy Drinks:</strong> <span class="detail-coffee-spending"></span>
+                                </p>
+                                <p><strong>Eating Out:</strong> <span class="detail-eating-out"></span></p>
+                                <p><strong>Alcohol:</strong> <span class="detail-alcohol-spending"></span></p>
+                                <p><strong>Smoking:</strong> <span class="detail-smoking-spending"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Commitment & Support</h3>
+                                <p><strong>Motivation Level (1-10):</strong> <span class="detail-motivation"></span></p>
+                                <p><strong>Ready to Invest:</strong> <span class="detail-ready-decision"></span></p>
+                                <p><strong>Monthly Investment:</strong> <span class="detail-invest-monthly"></span></p>
+                                <p><strong>Spouse/SO Support:</strong> <span class="detail-spouse-support"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Change Assessment</h3>
+                                <p><strong>Coach Expectations:</strong> <span class="detail-coach-expectations"></span>
+                                </p>
+                                <p><strong>Why They Would Benefit:</strong> <span class="detail-benefit-reason"></span>
+                                </p>
+                                <p><strong>Good About Not Changing:</strong> <span class="detail-good-no-change"></span>
+                                </p>
+                                <p><strong>Bad About Changing:</strong> <span class="detail-bad-change"></span></p>
+                                <p><strong>Good About Changing:</strong> <span class="detail-good-change"></span></p>
+                                <p><strong>Bad About Not Changing:</strong> <span class="detail-bad-no-change"></span>
+                                </p>
+                                <p><strong>Future Outlook:</strong> <span class="detail-future-outlook"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Next Steps</h3>
+                                <p><strong>Ready to Move Forward:</strong> <span class="detail-ready-now"></span></p>
+                                <p><strong>Start Timeline:</strong> <span class="detail-start-timeline"></span></p>
+                                <p><strong>Will Watch Video:</strong> <span class="detail-watch-video"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Application Status</h3>
+                                <select class="status-select">
+                                    <option value="new">New</option>
+                                    <option value="contacted">Contacted</option>
+                                    <option value="enrolled">Enrolled</option>
+                                    <option value="declined">Declined</option>
+                                </select>
+                            </div>
+
+                            <div class="email-history">
+                                <h3>Email History</h3>
+                                <div class="email-history-list">
+                                    <!-- Email history will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email System Tab -->
+            <div id="email" class="tab-content">
+                <div class="email-system">
+                    <div class="email-composer">
+                        <h2>Send Email</h2>
+                        <div class="email-type-selector">
+                            <button class="active" data-type="single">Single Email</button>
+                            <button data-type="bulk">Bulk Email</button>
+                        </div>
+
+                        <div id="recipientSelector" class="recipient-selector">
+                            <!-- Single recipient select -->
+                            <select id="emailRecipient">
+                                <option value="">Select Recipient</option>
+                            </select>
+                            <!-- Bulk recipients select -->
+                            <div id="bulkRecipientSelector" class="bulk-selector" style="display: none;">
+                                <div class="status-checkboxes">
+                                    <label><input type="checkbox" value="new"> New Applications</label>
+                                    <label><input type="checkbox" value="contacted"> Contacted</label>
+                                    <label><input type="checkbox" value="enrolled"> Enrolled</label>
+                                    <label><input type="checkbox" value="declined"> Declined</label>
+                                </div>
+                                <div class="selected-count">
+                                    Selected Recipients: <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="email-template-selector">
+                            <select id="emailTemplate">
+                                <option value="">Select Template</option>
+                                <option value="welcome">Welcome Email</option>
+                                <option value="followup">Follow-up</option>
+                                <option value="custom">Custom Email</option>
+                            </select>
+                        </div>
+
+                        <div class="email-editor">
+                            <input type="text" id="emailSubject" placeholder="Email Subject">
+                            <div id="emailContent" class="email-content-editor" contenteditable="true"></div>
+                        </div>
+
+                        <button id="sendEmail" class="send-email-btn">Send Email</button>
+                    </div>
+
+                    <div class="email-history">
+                        <h3>Email History</h3>
+                        <div class="email-history-list">
+                            <!-- Email history will be loaded here dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Initialize Firebase first -->
+    <script src="../../js/firebase.js"></script>
+    <!-- Then load dashboard logic -->
+    <script src="../../js/admin/dashboard.js"></script>
+    <script src="../../js/admin/applications.js"></script>
+    <script src="../../js/admin/email-system.js"></script>
+</body>
+
+</html>
