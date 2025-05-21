@@ -69,14 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById(tabId).classList.add('active');
 
                 // If switching to email tab, scroll to email composer after a short delay
-                if (tabId === 'email') {
-                    setTimeout(() => {
-                        const emailComposer = document.querySelector('.email-composer');
-                        if (emailComposer) {
-                            emailComposer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }, 100);
-                }
+                // if (tabId === 'email') {
+                //     setTimeout(() => {
+                //         const emailComposer = document.querySelector('.email-composer');
+                //         if (emailComposer) {
+                //             emailComposer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                //         }
+                //     }, 100);
+                // }
             });
         });
     }

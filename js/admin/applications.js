@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
             <div class="card-actions">
                 <button class="view-details-btn" data-id="${application.id}">View Details</button>
-                <button class="send-email-btn" data-id="${application.id}">Send Email</button>
+                <!-- <button class="send-email-btn" data-id="${application.id}">Send Email</button> -->
             </div>
         `;
 
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
             showApplicationDetails(application);
         });
 
-        const sendEmailBtn = card.querySelector('.send-email-btn');
-        sendEmailBtn.addEventListener('click', () => {
-            prepareEmail(application);
-        });
+        // const sendEmailBtn = card.querySelector('.send-email-btn');
+        // sendEmailBtn.addEventListener('click', () => {
+        //     prepareEmail(application);
+        // });
 
         return card;
     }

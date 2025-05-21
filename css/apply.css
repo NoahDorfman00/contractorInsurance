@@ -136,12 +136,7 @@ textarea.form-control {
     cursor: pointer;
 }
 
-.submit-section {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.submit-btn {
+.submit-button {
     background: var(--accent-color);
     color: var(--white);
     padding: 1rem 2rem;
@@ -151,17 +146,19 @@ textarea.form-control {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 2px 4px rgba(24, 64, 90, 0.1);
+    width: 100%;
+    margin-top: 2rem;
 }
 
-.submit-btn:hover {
+.submit-button:hover {
     background: var(--secondary-color);
     color: var(--accent-color);
     transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 4px 6px rgba(24, 64, 90, 0.2);
 }
 
-.submit-btn:disabled {
+.submit-button:disabled {
     background: var(--gray-300);
     cursor: not-allowed;
     transform: none;
