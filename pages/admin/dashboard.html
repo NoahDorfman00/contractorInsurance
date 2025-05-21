@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - ShapeShift Coaching</title>
+    <title>Admin Dashboard - Contractor Insurance</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -25,7 +25,7 @@
 
     <nav class="admin-nav">
         <div class="admin-nav-brand">
-            <h1>ShapeShift Admin</h1>
+            <h1>Insurance Admin</h1>
         </div>
         <div class="admin-nav-user">
             <span id="userEmail"></span>
@@ -37,7 +37,7 @@
         <div class="admin-sidebar">
             <ul class="admin-menu">
                 <li class="active" data-tab="applications">
-                    <i class="fas fa-users"></i> Applications
+                    <i class="fas fa-file-alt"></i> Estimates
                 </li>
                 <li data-tab="email">
                     <i class="fas fa-envelope"></i> Email System
@@ -49,16 +49,16 @@
             <!-- Applications Tab -->
             <div id="applications" class="tab-content active">
                 <div class="applications-header">
-                    <h2>Applications</h2>
+                    <h2>Insurance Estimates</h2>
                     <div class="filter-controls">
                         <select id="statusFilter">
                             <option value="all">All Status</option>
                             <option value="new">New</option>
                             <option value="contacted">Contacted</option>
-                            <option value="enrolled">Enrolled</option>
+                            <option value="quoted">Quoted</option>
                             <option value="declined">Declined</option>
                         </select>
-                        <input type="text" id="searchApplications" placeholder="Search applications...">
+                        <input type="text" id="searchApplications" placeholder="Search estimates...">
                     </div>
                 </div>
 
@@ -70,82 +70,49 @@
                 <div id="applicationModal" class="modal">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2>Application Details</h2>
+                            <h2>Estimate Details</h2>
                             <button class="close-modal">&times;</button>
                         </div>
                         <div class="modal-body">
                             <div class="detail-group">
-                                <h3>Basic Information</h3>
+                                <h3>Business Information</h3>
+                                <p><strong>Business Name:</strong> <span class="detail-business-name"></span></p>
+                                <p><strong>Business Type:</strong> <span class="detail-business-type"></span></p>
+                                <p><strong>Years in Business:</strong> <span class="detail-years-in-business"></span>
+                                </p>
+                                <p><strong>Annual Revenue:</strong> <span class="detail-annual-revenue"></span></p>
+                            </div>
+
+                            <div class="detail-group">
+                                <h3>Contact Information</h3>
                                 <p><strong>Name:</strong> <span class="detail-name"></span></p>
                                 <p><strong>Email:</strong> <span class="detail-email"></span></p>
                                 <p><strong>Phone:</strong> <span class="detail-phone"></span></p>
-                                <p><strong>Age:</strong> <span class="detail-age"></span></p>
-                                <p><strong>Weight:</strong> <span class="detail-weight"></span> lbs</p>
-                                <p><strong>Occupation:</strong> <span class="detail-occupation"></span></p>
-                                <p><strong>Social Media:</strong> <span class="detail-social"></span></p>
-                                <p><strong>How they heard about us:</strong> <span class="detail-hear-about"></span></p>
-                                <p><strong>Military/First Responder Status:</strong> <span
-                                        class="detail-military"></span></p>
-                                <p><strong>Applied:</strong> <span class="detail-applied"></span></p>
+                                <p><strong>Business Address:</strong> <span class="detail-business-address"></span></p>
+                                <p><strong>Submitted:</strong> <span class="detail-submitted"></span></p>
                             </div>
 
                             <div class="detail-group">
-                                <h3>Goals & Health Value</h3>
-                                <p><strong>Goals:</strong> <span class="detail-goals"></span></p>
-                                <p><strong>Success Criteria:</strong> <span class="detail-success-criteria"></span></p>
-                                <p><strong>Health Value:</strong> <span class="detail-health-value"></span></p>
+                                <h3>Coverage Details</h3>
+                                <p><strong>Number of Employees:</strong> <span class="detail-employees"></span></p>
+                                <p><strong>Equipment Value:</strong> <span class="detail-equipment-value"></span></p>
+                                <p><strong>Coverage Needs:</strong> <span class="detail-coverage-needs"></span></p>
                             </div>
 
                             <div class="detail-group">
-                                <h3>Past Experiences</h3>
-                                <p><strong>Past Attempts:</strong> <span class="detail-past-attempts"></span></p>
-                            </div>
-
-                            <div class="detail-group">
-                                <h3>Current Lifestyle</h3>
-                                <p><strong>Coffee & Energy Drinks:</strong> <span class="detail-coffee-spending"></span>
+                                <h3>Additional Information</h3>
+                                <p><strong>Previous Claims:</strong> <span class="detail-previous-claims"></span></p>
+                                <p><strong>Claims Details:</strong> <span class="detail-claims-details"></span></p>
+                                <p><strong>Additional Information:</strong> <span class="detail-additional-info"></span>
                                 </p>
-                                <p><strong>Eating Out:</strong> <span class="detail-eating-out"></span></p>
-                                <p><strong>Alcohol:</strong> <span class="detail-alcohol-spending"></span></p>
-                                <p><strong>Smoking:</strong> <span class="detail-smoking-spending"></span></p>
                             </div>
 
                             <div class="detail-group">
-                                <h3>Commitment & Support</h3>
-                                <p><strong>Motivation Level (1-10):</strong> <span class="detail-motivation"></span></p>
-                                <p><strong>Ready to Invest:</strong> <span class="detail-ready-decision"></span></p>
-                                <p><strong>Monthly Investment:</strong> <span class="detail-invest-monthly"></span></p>
-                                <p><strong>Spouse/SO Support:</strong> <span class="detail-spouse-support"></span></p>
-                            </div>
-
-                            <div class="detail-group">
-                                <h3>Change Assessment</h3>
-                                <p><strong>Coach Expectations:</strong> <span class="detail-coach-expectations"></span>
-                                </p>
-                                <p><strong>Why They Would Benefit:</strong> <span class="detail-benefit-reason"></span>
-                                </p>
-                                <p><strong>Good About Not Changing:</strong> <span class="detail-good-no-change"></span>
-                                </p>
-                                <p><strong>Bad About Changing:</strong> <span class="detail-bad-change"></span></p>
-                                <p><strong>Good About Changing:</strong> <span class="detail-good-change"></span></p>
-                                <p><strong>Bad About Not Changing:</strong> <span class="detail-bad-no-change"></span>
-                                </p>
-                                <p><strong>Future Outlook:</strong> <span class="detail-future-outlook"></span></p>
-                            </div>
-
-                            <div class="detail-group">
-                                <h3>Next Steps</h3>
-                                <p><strong>Ready to Move Forward:</strong> <span class="detail-ready-now"></span></p>
-                                <p><strong>Start Timeline:</strong> <span class="detail-start-timeline"></span></p>
-                                <p><strong>Will Watch Video:</strong> <span class="detail-watch-video"></span></p>
-                            </div>
-
-                            <div class="detail-group">
-                                <h3>Application Status</h3>
+                                <h3>Estimate Status</h3>
                                 <select class="status-select">
                                     <option value="new">New</option>
                                     <option value="contacted">Contacted</option>
-                                    <option value="enrolled">Enrolled</option>
+                                    <option value="quoted">Quoted</option>
                                     <option value="declined">Declined</option>
                                 </select>
                             </div>
@@ -179,9 +146,9 @@
                             <!-- Bulk recipients select -->
                             <div id="bulkRecipientSelector" class="bulk-selector" style="display: none;">
                                 <div class="status-checkboxes">
-                                    <label><input type="checkbox" value="new"> New Applications</label>
+                                    <label><input type="checkbox" value="new"> New Estimates</label>
                                     <label><input type="checkbox" value="contacted"> Contacted</label>
-                                    <label><input type="checkbox" value="enrolled"> Enrolled</label>
+                                    <label><input type="checkbox" value="quoted"> Quoted</label>
                                     <label><input type="checkbox" value="declined"> Declined</label>
                                 </div>
                                 <div class="selected-count">
@@ -194,7 +161,7 @@
                             <select id="emailTemplate">
                                 <option value="">Select Template</option>
                                 <option value="welcome">Welcome Email</option>
-                                <option value="followup">Follow-up</option>
+                                <option value="quote">Quote Follow-up</option>
                                 <option value="custom">Custom Email</option>
                             </select>
                         </div>

@@ -49,37 +49,28 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // Get form data
         const formData = {
+            // Business Information
+            business_name: document.getElementById('business_name').value,
+            business_type: document.getElementById('business_type').value,
+            years_in_business: document.getElementById('years_in_business').value,
+            annual_revenue: document.getElementById('annual_revenue').value,
+
+            // Contact Information
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
-            age: document.getElementById('age').value,
-            weight: document.getElementById('weight').value,
-            occupation: document.getElementById('occupation').value,
-            social: document.getElementById('social').value,
-            hear_about: document.getElementById('hear_about').value,
-            military: document.getElementById('military').value,
-            goals: document.getElementById('goals').value,
-            success_criteria: document.getElementById('success_criteria').value,
-            health_value: document.getElementById('health_value').value,
-            past_attempts: document.getElementById('past_attempts').value,
-            coffee_spending: document.getElementById('coffee_spending').value,
-            eating_out: document.getElementById('eating_out').value,
-            alcohol_spending: document.getElementById('alcohol_spending').value,
-            smoking_spending: document.getElementById('smoking_spending').value,
-            motivation: document.getElementById('motivation').value,
-            ready_decision: document.getElementById('ready_decision').value,
-            invest_monthly: document.getElementById('invest_monthly').value,
-            spouse_support: document.getElementById('spouse_support').value,
-            coach_expectations: document.getElementById('coach_expectations').value,
-            benefit_reason: document.getElementById('benefit_reason').value,
-            good_no_change: document.getElementById('good_no_change').value,
-            bad_change: document.getElementById('bad_change').value,
-            good_change: document.getElementById('good_change').value,
-            bad_no_change: document.getElementById('bad_no_change').value,
-            future_outlook: document.getElementById('future_outlook').value,
-            ready_now: document.getElementById('ready_now').value,
-            start_timeline: document.getElementById('start_timeline').value,
-            watch_video: document.getElementById('watch_video').value,
+            business_address: document.getElementById('business_address').value,
+
+            // Coverage Details
+            employees: document.getElementById('employees').value,
+            equipment_value: document.getElementById('equipment_value').value,
+            coverage_needs: Array.from(document.querySelectorAll('input[name="coverage_needs"]:checked')).map(cb => cb.value),
+
+            // Additional Information
+            previous_claims: document.getElementById('previous_claims').value,
+            claims_details: document.getElementById('claims_details').value,
+            additional_info: document.getElementById('additional_info').value,
+
             timestamp: new Date().toISOString(),
             status: 'new'
         };
@@ -99,79 +90,38 @@ document.addEventListener('DOMContentLoaded', async function () {
                 "template_1x0zygs",
                 {
                     to_email: "n.dorfman00@gmail.com",
-                    subject: "New Application for ShapeShift Coaching",
-                    message: `Hey Matt,
-You just received a new application for ShapeShift Coaching.
+                    subject: "New Insurance Estimate Request",
+                    message: `New insurance estimate request received!
 
-=== BASIC INFORMATION ===
+=== BUSINESS INFORMATION ===
+Business Name: ${formData.business_name}
+Business Type: ${formData.business_type}
+Years in Business: ${formData.years_in_business}
+Annual Revenue: ${formData.annual_revenue}
+
+=== CONTACT INFORMATION ===
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone}
-Age: ${formData.age}
-Weight: ${formData.weight} lbs
-Occupation: ${formData.occupation}
-Social Media: ${formData.social || 'N/A'}
-How they heard about us: ${formData.hear_about || 'N/A'}
-Military/First Responder: ${formData.military}
+Business Address: ${formData.business_address}
 
-=== GOALS & HEALTH VALUE ===
-Goals:
-${formData.goals}
+=== COVERAGE DETAILS ===
+Number of Employees: ${formData.employees}
+Equipment Value: ${formData.equipment_value}
+Coverage Needs: ${formData.coverage_needs.join(', ')}
 
-Success Criteria:
-${formData.success_criteria}
+=== ADDITIONAL INFORMATION ===
+Previous Claims: ${formData.previous_claims}
+Claims Details: ${formData.claims_details || 'N/A'}
+Additional Information: ${formData.additional_info || 'N/A'}
 
-Health Value:
-${formData.health_value}
-
-=== PAST EXPERIENCES ===
-Past Attempts:
-${formData.past_attempts}
-
-=== CURRENT LIFESTYLE ===
-Coffee & Energy Drinks: ${formData.coffee_spending}
-Eating Out: ${formData.eating_out}
-Alcohol: ${formData.alcohol_spending}
-Smoking: ${formData.smoking_spending}
-
-=== COMMITMENT & SUPPORT ===
-Motivation Level: ${formData.motivation}/10
-Ready to Invest: ${formData.ready_decision}
-Monthly Investment: ${formData.invest_monthly}
-Spouse Support: ${formData.spouse_support}
-
-=== CHANGE ASSESSMENT ===
-Coach Expectations:
-${formData.coach_expectations}
-
-Why They Would Benefit:
-${formData.benefit_reason}
-
-Good About Not Changing:
-${formData.good_no_change}
-
-Bad About Changing:
-${formData.bad_change}
-
-Good About Changing:
-${formData.good_change}
-
-Bad About Not Changing:
-${formData.bad_no_change}
-
-Future Outlook:
-${formData.future_outlook}
-
-=== NEXT STEPS ===
-Ready to Move Forward: ${formData.ready_now}
-Start Timeline: ${formData.start_timeline}
-Will Watch Video: ${formData.watch_video}`
+Timestamp: ${formData.timestamp}`
                 }
             );
             console.log('Email sent successfully');
 
             // Show success message
-            showMessage('success', 'Application submitted successfully! We\'ll be in touch soon.');
+            showMessage('success', 'Your estimate request has been submitted successfully! We\'ll be in touch soon.');
             document.getElementById('applicationForm').reset();
         } catch (error) {
             console.error('Error details:', {
@@ -179,10 +129,10 @@ Will Watch Video: ${formData.watch_video}`
                 code: error.code,
                 stack: error.stack
             });
-            showMessage('error', 'There was an error submitting your application. Please try again.');
+            showMessage('error', 'There was an error submitting your request. Please try again.');
         } finally {
             submitButton.classList.remove('loading');
-            submitButton.textContent = 'Submit Application';
+            submitButton.textContent = 'Get Your Estimate';
         }
     });
 });

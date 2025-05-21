@@ -1,12 +1,13 @@
 // Firebase configuration
+
 const firebaseConfig = {
-    apiKey: "AIzaSyB2OGb_aHpI9FOfROJTm2gn4YgdbUyoLW0",
-    authDomain: "shapeshift-bc4ae.firebaseapp.com",
-    projectId: "shapeshift-bc4ae",
-    storageBucket: "shapeshift-bc4ae.firebasestorage.app",
-    messagingSenderId: "33652450246",
-    appId: "1:33652450246:web:1930a52ba0486300dfc8c7",
-    measurementId: "G-5CZP7Y047J"
+    apiKey: "AIzaSyA1IodR_M-78Xnj0fg2cbA5Wva_bq38jVw",
+    authDomain: "contractorinsurance-dfeb3.firebaseapp.com",
+    projectId: "contractorinsurance-dfeb3",
+    storageBucket: "contractorinsurance-dfeb3.firebasestorage.app",
+    messagingSenderId: "179762739872",
+    appId: "1:179762739872:web:fb738a1d3d4276002067c5",
+    measurementId: "G-V5G8H60C7G"
 };
 
 // Initialize Firebase

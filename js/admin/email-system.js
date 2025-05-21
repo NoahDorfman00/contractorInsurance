@@ -29,35 +29,43 @@ document.addEventListener('DOMContentLoaded', function () {
     // Email templates
     const templates = {
         welcome: {
-            subject: "Welcome to ShapeShift Coaching!",
+            subject: "Thank you for your insurance estimate request",
             content: `Hi {name},
 
-Thank you for applying to ShapeShift Coaching! I'm excited to help you on your transformation journey.
+Thank you for requesting an insurance estimate for {business_name}. We have received your information and will review it shortly.
 
-I've reviewed your application and would love to schedule a consultation call to discuss your goals in detail.
+Our team will analyze your business needs and provide you with a comprehensive insurance quote within 1-2 business days.
 
-Please click the link below to schedule your FREE consultation:
-[Insert Calendly Link]
-
-Looking forward to speaking with you!
+If you have any questions in the meantime, please don't hesitate to contact us.
 
 Best regards,
-Coach Matt`
+Your Insurance Team`
+        },
+        quote: {
+            subject: "Your Insurance Quote is Ready",
+            content: `Hi {name},
+
+Thank you for your patience. We have prepared your insurance quote for {business_name}.
+
+Please review the attached quote and let us know if you have any questions or if you'd like to proceed with the coverage.
+
+We're here to help you make the best decision for your business.
+
+Best regards,
+Your Insurance Team`
         },
         followup: {
-            subject: "Following Up - ShapeShift Coaching Application",
+            subject: "Following Up - Insurance Quote",
             content: `Hi {name},
 
-I hope this email finds you well! I noticed you recently applied to ShapeShift Coaching, and I wanted to follow up.
+I hope this email finds you well! I wanted to follow up regarding the insurance quote we provided for {business_name}.
 
-I'd love to learn more about your goals and discuss how we can work together to achieve them.
+Have you had a chance to review the quote? I'd be happy to answer any questions you may have or discuss the coverage options in more detail.
 
-Would you be interested in scheduling a quick consultation call?
-
-Please click here to schedule: [Insert Calendly Link]
+Please let me know if you'd like to schedule a call to discuss further.
 
 Best regards,
-Coach Matt`
+Your Insurance Team`
         }
     };
 
@@ -71,9 +79,10 @@ Coach Matt`
             option.value = JSON.stringify({
                 email: application.email,
                 name: application.name,
-                id: application.id
+                id: application.id,
+                business_name: application.business_name
             });
-            option.textContent = `${application.name} (${application.email})`;
+            option.textContent = `${application.business_name} - ${application.name} (${application.email})`;
             recipientSelect.appendChild(option);
         });
     }
@@ -152,7 +161,8 @@ Coach Matt`
                 .map(app => ({
                     email: app.email,
                     name: app.name,
-                    id: app.id
+                    id: app.id,
+                    business_name: app.business_name
                 }));
 
             if (recipients.length === 0) {
@@ -183,7 +193,9 @@ Coach Matt`
                     to_email: recipient.email,
                     to_name: recipient.name,
                     subject: emailSubject.value,
-                    message: emailContent.innerHTML.replace('{name}', recipient.name)
+                    message: emailContent.innerHTML
+                        .replace(/{name}/g, recipient.name)
+                        .replace(/{business_name}/g, recipient.business_name)
                 };
 
                 // Send email
@@ -249,13 +261,13 @@ Coach Matt`
                         <span class="email-date">${new Date(email.timestamp).toLocaleString()}</span>
                     </div>
                     <div class="email-subject">${email.subject}</div>
+                    <div class="email-content">${email.content}</div>
                 </div>
             `).join('');
         });
     }
 
-    // Initial load
+    // Initialize
     loadApplications();
-    loadRecipients();
     loadEmailHistory();
 }); 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply Now - ShapeShift Coaching</title>
+    <title>Get Your Insurance Estimate - Contractor Insurance</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/apply.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -13,12 +13,11 @@
 </head>
 
 <body>
-    <!-- Same navbar as index.html -->
     <nav class="navbar">
         <div class="nav-brand">
             <a href="../index.html">
-                <img src="../images/logo.webp" alt="ShapeShift Coaching Logo">
-                ShapeShift Coaching
+                <img src="../images/logo.png" alt="Insurance Estimator Logo">
+                Contractor Insurance
             </a>
         </div>
         <div class="nav-toggle" id="navToggle">
@@ -28,19 +27,53 @@
         </div>
         <ul class="nav-menu" id="navMenu">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="coach.html">About Coach</a></li>
-            <li><a href="faqs.html">FAQs</a></li>
-            <li><a href="apply.html" class="cta-button">Apply Now</a></li>
+            <li><a href="apply.html" class="cta-button">Get Estimate</a></li>
         </ul>
     </nav>
 
     <main class="apply-container">
-        <h1>Apply Now!</h1>
-        <p class="apply-intro">Take a minute to fill out our Lifestyle Questionnaire to get your FREE Consultation!</p>
+        <h1>Get Your Insurance Estimate</h1>
+        <p class="apply-intro">Fill out this form to receive your personalized insurance estimate in minutes!</p>
 
         <form id="applicationForm" class="application-form">
             <div class="form-section">
-                <h2>Basic Information</h2>
+                <h2>Business Information</h2>
+                <div class="form-group">
+                    <label for="business_name">Business Name *</label>
+                    <input type="text" id="business_name" name="business_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="business_type">Type of Contracting Business *</label>
+                    <select id="business_type" name="business_type" required>
+                        <option value="">Select your business type</option>
+                        <option value="general">General Contractor</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="hvac">HVAC</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="landscaping">Landscaping</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="years_in_business">Years in Business *</label>
+                    <input type="number" id="years_in_business" name="years_in_business" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="annual_revenue">Annual Revenue *</label>
+                    <select id="annual_revenue" name="annual_revenue" required>
+                        <option value="">Select revenue range</option>
+                        <option value="0-100k">$0 - $100,000</option>
+                        <option value="100k-500k">$100,000 - $500,000</option>
+                        <option value="500k-1m">$500,000 - $1,000,000</option>
+                        <option value="1m-5m">$1,000,000 - $5,000,000</option>
+                        <option value="5m+">$5,000,000+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Contact Information</h2>
                 <div class="form-group">
                     <label for="name">Full Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -54,228 +87,95 @@
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="age">Age *</label>
-                    <input type="number" id="age" name="age" min="16" max="120" required>
+                    <label for="business_address">Business Address *</label>
+                    <input type="text" id="business_address" name="business_address" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Coverage Details</h2>
+                <div class="form-group">
+                    <label for="employees">Number of Employees *</label>
+                    <input type="number" id="employees" name="employees" min="0" required>
                 </div>
                 <div class="form-group">
-                    <label for="weight">Current Weight (lbs) *</label>
-                    <input type="number" id="weight" name="weight" min="50" max="500" required>
-                </div>
-                <div class="form-group">
-                    <label for="occupation">Occupation *</label>
-                    <input type="text" id="occupation" name="occupation" required>
-                </div>
-                <div class="form-group">
-                    <label for="social">Facebook/Instagram Handle (Optional)</label>
-                    <input type="text" id="social" name="social">
-                </div>
-                <div class="form-group">
-                    <label for="hear_about">How did you hear about ShapeShift? (Optional)</label>
-                    <select id="hear_about" name="hear_about">
-                        <option value="">Select an option</option>
-                        <option value="facebook">Facebook</option>
-                        <option value="instagram">Instagram</option>
-                        <option value="tiktok">TikTok</option>
-                        <option value="family_friend">Family/Friend</option>
-                        <option value="other">Other</option>
+                    <label for="equipment_value">Estimated Value of Equipment *</label>
+                    <select id="equipment_value" name="equipment_value" required>
+                        <option value="">Select equipment value range</option>
+                        <option value="0-50k">$0 - $50,000</option>
+                        <option value="50k-100k">$50,000 - $100,000</option>
+                        <option value="100k-250k">$100,000 - $250,000</option>
+                        <option value="250k-500k">$250,000 - $500,000</option>
+                        <option value="500k+">$500,000+</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="military">Are you Former/Active Military/Police/Fire/First Responder? If so, specify.
-                        *</label>
-                    <input type="text" id="military" name="military" required>
+                    <label for="coverage_needs">What types of coverage are you interested in? *</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="coverage_needs" value="general_liability"> General Liability
+                        </label>
+                        <label>
+                            <input type="checkbox" name="coverage_needs" value="workers_comp"> Workers' Compensation
+                        </label>
+                        <label>
+                            <input type="checkbox" name="coverage_needs" value="commercial_auto"> Commercial Auto
+                        </label>
+                        <label>
+                            <input type="checkbox" name="coverage_needs" value="equipment"> Equipment Coverage
+                        </label>
+                        <label>
+                            <input type="checkbox" name="coverage_needs" value="professional_liability"> Professional
+                            Liability
+                        </label>
+                    </div>
                 </div>
             </div>
 
             <div class="form-section">
-                <h2>Your Goals</h2>
+                <h2>Additional Information</h2>
                 <div class="form-group">
-                    <label for="goals">What is your goal? Lose 20 lbs? Gain 20 lbs of muscle? Overcome depression,
-                        anxiety, etc.? Learn how to manage Stress? Be Specific. Doesn't just have to be a physical goal.
-                        *</label>
-                    <textarea id="goals" name="goals" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="success_criteria">What would be the most important criteria for your success as we work
-                        together? *</label>
-                    <textarea id="success_criteria" name="success_criteria" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="health_value">Is your health valuable to you? Be HONEST. You will not be considered for
-                        coaching if you do not. If you say YES, explain why below. *</label>
-                    <textarea id="health_value" name="health_value" required></textarea>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h2>Past Experiences</h2>
-                <div class="form-group">
-                    <label for="past_attempts">Have you tried in the past to achieve your goals and why hasn't it worked
-                        for you? OR if it did work explain why coaching would help you? What's stopping you from hitting
-                        your goal? *</label>
-                    <textarea id="past_attempts" name="past_attempts" required></textarea>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h2>Current Lifestyle</h2>
-                <div class="form-group">
-                    <label for="coffee_spending">On average how much money do you spend on coffee & energy drinks each
-                        week? If none put N/A *</label>
-                    <input type="text" id="coffee_spending" name="coffee_spending" required>
-                </div>
-                <div class="form-group">
-                    <label for="eating_out">On average how much money do you spend eating out each week? If none put N/A
-                        *</label>
-                    <input type="text" id="eating_out" name="eating_out" required>
-                </div>
-                <div class="form-group">
-                    <label for="alcohol_spending">On average how much money do you spend on alcohol each week? If none
-                        put N/A *</label>
-                    <input type="text" id="alcohol_spending" name="alcohol_spending" required>
-                </div>
-                <div class="form-group">
-                    <label for="smoking_spending">On average how much money do you spend smoking each week? If none put
-                        N/A *</label>
-                    <input type="text" id="smoking_spending" name="smoking_spending" required>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h2>Commitment & Support</h2>
-                <div class="form-group">
-                    <label for="motivation">On a scale of 1-10...1 being I'm satisfied where I am and 10 being I'll do
-                        anything to reach my goal. What number are you? *</label>
-                    <input type="number" id="motivation" name="motivation" min="1" max="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="ready_decision">I am only willing to work with people who are READY to financially
-                        invest in themselves. Are you ready RIGHT NOW to make the decision? *</label>
-                    <select id="ready_decision" name="ready_decision" required>
-                        <option value="">Select an option</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                        <option value="maybe">Need more information</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="invest_monthly">Are you willing to invest $165 per month on YOURSELF? *</label>
-                    <select id="invest_monthly" name="invest_monthly" required>
-                        <option value="">Select an option</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                        <option value="maybe">Need more information</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="spouse_support">Does your spouse or significant other support you? (Meaning they will
-                        give you a thumbs up on whatever you decide) *</label>
-                    <select id="spouse_support" name="spouse_support" required>
-                        <option value="">Select an option</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                        <option value="na">N/A or No Spouse/Significant Other</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h2>Expectations & Change Readiness</h2>
-                <div class="form-group">
-                    <label for="coach_expectations">What would you expect from me as your coach if we decide to work
-                        together? *</label>
-                    <textarea id="coach_expectations" name="coach_expectations" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="benefit_reason">Why do you think you would benefit from 1-1 specialized coaching and/or
-                        why would you be a good addition to our program? *</label>
-                    <textarea id="benefit_reason" name="benefit_reason" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="good_no_change">What is GOOD about not changing? What is working for you with the status
-                        quo? *</label>
-                    <textarea id="good_no_change" name="good_no_change" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="bad_change">What would be BAD about changing? If you changed, what might you have to
-                        give up or lose? How would your regular routine be interrupted? *</label>
-                    <textarea id="bad_change" name="bad_change" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="good_change">What would be GOOD about changing? If you changed, how would it be helpful
-                        or beneficial? What new opportunities and possibilities could open up? *</label>
-                    <textarea id="good_change" name="good_change" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="bad_no_change">What might be BAD about NOT changing? If you didn't change, what bad
-                        things could happen? *</label>
-                    <textarea id="bad_no_change" name="bad_no_change" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="future_outlook">If you keep going the way you're going, what might things look like in
-                        the future? (say 10 years from now?) *</label>
-                    <textarea id="future_outlook" name="future_outlook" required></textarea>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <h2>Next Steps</h2>
-                <div class="form-group">
-                    <label for="ready_now">With that said, are you ready RIGHT NOW to move forward? (Be ready to move
-                        forward after completing this form or consultation IF YOU and me decide you're a good fit for
-                        this program.) *</label>
-                    <select id="ready_now" name="ready_now" required>
-                        <option value="">Select an option</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                        <option value="maybe">Need more information</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="start_timeline">If accepted how soon are you looking to get started? *</label>
-                    <input type="text" id="start_timeline" name="start_timeline" required>
-                </div>
-                <div class="form-group">
-                    <label for="watch_video">You will be receiving a personal consultation video upon the completion of
-                        this form. Will be available to watch the video in a quiet, distraction free environment at an
-                        un-interrupted time? *</label>
-                    <select id="watch_video" name="watch_video" required>
+                    <label for="previous_claims">Have you had any insurance claims in the past 3 years? *</label>
+                    <select id="previous_claims" name="previous_claims" required>
                         <option value="">Select an option</option>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="claims_details">If yes, please provide details:</label>
+                    <textarea id="claims_details" name="claims_details"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="additional_info">Any additional information you'd like us to know:</label>
+                    <textarea id="additional_info" name="additional_info"></textarea>
+                </div>
             </div>
 
-            <button type="submit" class="submit-button">Submit Application</button>
+            <button type="submit" class="submit-button">Get Your Estimate</button>
         </form>
     </main>
 
-    <!-- Same footer as index.html -->
     <footer>
-        <!-- ... footer content ... -->
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="faqs.html">FAQs</a></li>
-                <li><a href="coach.html">About Coach</a></li>
-                <li><a href="apply.html">Apply Now</a></li>
-            </ul>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contractor Insurance</h3>
+                <p>Protecting your business with comprehensive coverage</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="apply.html">Get Estimate</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Contractor Insurance. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-
-    <!-- Initialize Firebase first -->
     <script src="../js/firebase.js"></script>
-
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-    <!-- Application logic last -->
     <script src="../js/apply.js"></script>
 </body>
 
