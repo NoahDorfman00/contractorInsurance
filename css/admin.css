@@ -18,7 +18,7 @@
 
 /* Admin General Styles */
 .admin-body {
-    background: #f4f6f8;
+    background: var(--gray-100);
     min-height: 100vh;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .login-box {
-    background: white;
+    background: var(--white);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -48,15 +48,15 @@
     gap: 1rem;
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 5px;
-    background: white;
+    background: var(--white);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .google-sign-in:hover {
-    background: #f5f5f5;
+    background: var(--gray-100);
 }
 
 .google-sign-in img {
@@ -65,410 +65,54 @@
 }
 
 /* Dashboard Layout */
+.admin-nav {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .admin-container {
     display: flex;
-    min-height: 100vh;
-    background: var(--gray-100);
+    height: calc(100vh - 64px);
 }
 
 .admin-sidebar {
     width: 250px;
     background: var(--white);
-    padding: 2rem;
-    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
-    height: 100vh;
-    overflow-y: auto;
+    border-right: 1px solid var(--gray-200);
+    padding: 2rem 0;
 }
 
-.admin-main {
-    flex: 1;
-    padding: 2rem;
-}
-
-/* Admin Header */
-.admin-header {
-    background: var(--white);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-}
-
-.admin-header h1 {
-    color: var(--gray-900);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.user-info span {
-    color: var(--gray-700);
-}
-
-.logout-btn {
-    background: var(--gray-200);
-    color: var(--gray-700);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.logout-btn:hover {
-    background: var(--gray-300);
-}
-
-/* Admin Navigation */
-.admin-nav {
-    margin-top: 2rem;
-}
-
-.admin-nav ul {
+.admin-menu {
     list-style: none;
 }
 
-.admin-nav li {
-    margin-bottom: 0.5rem;
-}
-
-.admin-nav a {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    color: var(--gray-700);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.admin-nav a:hover {
-    background: var(--gray-100);
-    color: var(--secondary-color);
-}
-
-.admin-nav a.active {
-    background: var(--secondary-color);
-    color: var(--white);
-}
-
-.admin-nav i {
-    font-size: 1.25rem;
-}
-
-/* Cards */
-.card {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.card-header h2 {
-    color: var(--gray-900);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Application Cards */
-.application-card {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--gray-200);
-    transition: all 0.3s ease;
-}
-
-.application-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.application-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.application-header h3 {
-    color: var(--gray-900);
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.application-status {
-    padding: 0.25rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.status-new {
-    background: var(--secondary-color);
-    color: var(--white);
-}
-
-.status-reviewing {
-    background: var(--gray-200);
-    color: var(--gray-700);
-}
-
-.status-quoted {
-    background: #059669;
-    color: var(--white);
-}
-
-.status-rejected {
-    background: #dc2626;
-    color: var(--white);
-}
-
-.application-details {
-    color: var(--gray-600);
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-}
-
-.application-actions {
-    display: flex;
-    gap: 0.75rem;
-}
-
-.btn {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
+.admin-menu li {
+    padding: 1rem 2rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-primary {
-    background: var(--accent-color);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background: var(--secondary-color);
-    color: var(--accent-color);
-}
-
-.btn-secondary {
-    background: var(--gray-200);
-    color: var(--gray-700);
-}
-
-.btn-secondary:hover {
-    background: var(--gray-300);
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.modal-content {
-    background: var(--white);
-    border-radius: 12px;
-    width: 90%;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.modal-header h2 {
-    color: var(--gray-900);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.close-modal {
-    background: none;
-    border: none;
-    color: var(--gray-500);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-}
-
-.close-modal:hover {
-    color: var(--gray-700);
-}
-
-/* Form Elements */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    color: var(--gray-700);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--gray-300);
-    border-radius: 6px;
-    font-size: 1rem;
-    color: var(--gray-900);
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-select.form-control {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236B7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 1rem;
-    padding-right: 2.5rem;
-}
-
-/* Email System */
-.email-composer {
-    background: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-}
-
-.email-templates {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
 }
 
-.template-card {
+.admin-menu li:hover {
     background: var(--gray-100);
-    border-radius: 8px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.template-card:hover {
-    background: var(--gray-200);
+.admin-menu li.active {
+    background: var(--secondary-color);
+    color: var(--white);
 }
 
-.template-card h3 {
-    color: var(--gray-900);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.template-card p {
-    color: var(--gray-600);
-    font-size: 0.875rem;
-}
-
-/* Loading Overlay */
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+.admin-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--gray-200);
-    border-top-color: var(--secondary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .admin-sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 1rem;
-    }
-
-    .admin-main {
-        margin-left: 0;
-        padding: 1rem;
-    }
-
-    .admin-header {
-        padding: 1rem;
-    }
-
-    .application-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .application-actions {
-        flex-direction: column;
-    }
-
-    .modal-content {
-        width: 95%;
-        margin: 1rem auto;
-        padding: 1rem;
-    }
 }
 
 /* Applications Grid */
@@ -487,7 +131,7 @@ select.form-control {
 .filter-controls input,
 .filter-controls select {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 4px;
 }
 
@@ -495,6 +139,35 @@ select.form-control {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
+}
+
+.application-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.status-select {
+    padding: 0.3rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
 }
 
 .card-body {
@@ -511,17 +184,26 @@ select.form-control {
     gap: 1rem;
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--gray-200);
+}
+
+.card-actions button {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .view-details-btn {
     background: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
 }
 
 .send-email-btn {
     background: var(--secondary-color);
-    color: white;
+    color: var(--white);
 }
 
 .view-details-btn:hover,
@@ -531,7 +213,7 @@ select.form-control {
 
 /* Email System */
 .email-system {
-    background: white;
+    background: var(--white);
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -542,7 +224,7 @@ select.form-control {
     content: '';
     display: block;
     height: 1px;
-    background: #ddd;
+    background: var(--gray-200);
     margin: -3rem auto 3rem;
     width: 100%;
 }
@@ -555,15 +237,15 @@ select.form-control {
 
 .email-type-selector button {
     padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 5px;
-    background: white;
+    background: var(--white);
     cursor: pointer;
 }
 
 .email-type-selector button.active {
     background: var(--secondary-color);
-    color: white;
+    color: var(--white);
     border-color: var(--secondary-color);
 }
 
@@ -574,7 +256,7 @@ select.form-control {
 .email-editor input[type="text"] {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 5px;
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -582,22 +264,22 @@ select.form-control {
 
 .email-content-editor {
     min-height: 200px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 5px;
     padding: 1rem;
     margin-top: 1rem;
-    background: white;
+    background: var(--white);
 }
 
 .email-content-editor:empty::before {
     content: 'Type your email here... Use {name} to include the applicant\'s name';
-    color: #999;
+    color: var(--gray-400);
     font-style: italic;
 }
 
 .send-email-btn {
     background: var(--secondary-color);
-    color: white;
+    color: var(--white);
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 5px;
@@ -605,11 +287,144 @@ select.form-control {
     margin-top: 1rem;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1rem 0;
+    }
+
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .applications-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter-controls {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--gray-100);
+    border-top: 3px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.detail-group {
+    margin-bottom: 1.5rem;
+}
+
+.detail-group h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.detail-group p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
 /* Email History */
 .email-history {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--gray-200);
 }
 
 .email-history-list {
@@ -618,10 +433,10 @@ select.form-control {
 
 .email-history-item {
     padding: 1rem;
-    border: 1px solid #eee;
+    border: 1px solid var(--gray-200);
     border-radius: 4px;
     margin-bottom: 1rem;
-    background: #f8f9fa;
+    background: var(--gray-100);
 }
 
 .email-history-header {
@@ -629,7 +444,7 @@ select.form-control {
     justify-content: space-between;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    color: #666;
+    color: var(--gray-500);
 }
 
 .email-subject {
@@ -650,7 +465,7 @@ select.form-control {
 #applications.tab-content+#email.tab-content {
     margin-top: 3rem;
     padding-top: 3rem;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--gray-200);
 }
 
 /* Bulk Email Styles */
@@ -670,14 +485,14 @@ select.form-control {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--gray-200);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .status-checkboxes label:hover {
-    background: #f5f5f5;
+    background: var(--gray-100);
 }
 
 .status-checkboxes label input:checked+span {
@@ -685,8 +500,16 @@ select.form-control {
 }
 
 .selected-count {
-    color: #666;
+    color: var(--gray-500);
     font-size: 0.9rem;
+}
+
+.application-details {
+    padding: 2rem;
+    background: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    margin-top: 2rem;
 }
 
 .details-section {
