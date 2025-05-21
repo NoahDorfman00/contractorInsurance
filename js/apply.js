@@ -1,3 +1,24 @@
+// Wait for both Firebase and EmailJS to be ready
+function waitForDependencies() {
+    return new Promise((resolve, reject) => {
+        if (window.firebase && window.database && window.emailjs) {
+            resolve();
+        } else {
+            const timeout = setTimeout(() => {
+                reject(new Error('Dependencies initialization timeout'));
+            }, 5000); // 5 second timeout
+
+            const checkDependencies = setInterval(() => {
+                if (window.firebase && window.database && window.emailjs) {
+                    clearInterval(checkDependencies);
+                    clearTimeout(timeout);
+                    resolve();
+                }
+            }, 100);
+        }
+    });
+}
+
 // Initialize EmailJS
 emailjs.init("WK1jfxvbEvUnYrw7R");
 
@@ -23,6 +44,14 @@ function waitForFirebase() {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
+    try {
+        await waitForDependencies();
+        console.log('All dependencies are ready');
+    } catch (error) {
+        console.error('Dependencies initialization failed:', error);
+        return;
+    }
+
     try {
         await waitForFirebase();
         console.log('Firebase is ready');
